@@ -15,7 +15,7 @@ class CreateKhachhangTable extends Migration
     {
         Schema::create('khachhang', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('kh_ma')->comment('Mã khách hàng');
+            $table->unsignedInteger('kh_ma')->autoIncrement()->comment('Mã khách hàng');
             $table->string('kh_hoten', 100)->comment('Họ tên # Họ tên');
             $table->string('kh_taikhoan', 50)->comment('Tài khoản # Tài khoản');
             $table->string('kh_matkhau', 256)->comment('Mật khẩu # Mật khẩu');

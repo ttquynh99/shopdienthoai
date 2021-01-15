@@ -40,14 +40,23 @@
 </head>
 <body>
     <!-- header -->
-    <nav class="navbar navbar-light bg-light justify-content-between">
-      <img src="{{ asset('img/logo.jpg') }}" alt="">
-      <form class="form-inline">
-        <input class="form-control mx-sm-3 mb-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+    <nav style="background-color: #e3f2fd;" >
+      <div class="row">
+        <div class="col-md-4 text-center" style="padding-left: 150px;">
+          <img src="{{ asset('img/logo1.png') }}" alt="" height="80px" weight="80px">
+        </div>
+        <div class=" col-md-8 ">
+          <form class="form-inline">
+            <input class="form-control col-md-6 text-center " style="margin: 20px 5px;" type="search" aria-label="Search" >
+            <button class="btn btn btn-outline-info my-2 my-sm-0 col-md-2 text-center" type="submit" >Search</button>
+          </form>
+        </div>
+      </div>
     </nav>
     <!-- end header -->
+    <!-- body -->
+    
+    <!-- end body -->
     <!-- menu -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;" >
       <a class="navbar-brand" href="#">Navbar</a>

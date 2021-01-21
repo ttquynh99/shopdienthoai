@@ -24,6 +24,7 @@
         <div class="row">
             <!-- Sidebar -->
              @include('backend.layouts.partials.sidebar')
+             @include('backend.layouts.partials.errors_massage')
           
             <!-- End sidebar -->
 

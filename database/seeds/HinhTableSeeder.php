@@ -18,7 +18,7 @@ class HinhTableSeeder extends Seeder
         $uFN = new VnFullname();
         $uPI = new VnPersonalInfo();
 
-        for ($i=121; $i <= 150; $i++) {
+        for ($i=1; $i <= 30; $i++) {
             $today = new DateTime();
             array_push($list, [
                 'id'                   => $i,

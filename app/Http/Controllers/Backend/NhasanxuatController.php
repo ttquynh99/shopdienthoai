@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Nhasanxuat;
+use Carbon\Carbon;
+use Storage;
+use Session;
 
 class NhasanxuatController extends Controller
 {
@@ -44,17 +47,17 @@ class NhasanxuatController extends Controller
         $nsx_diachi = $request->nsx_diachi;
         $nsx_dienthoai = $request->nsx_dienthoai;
        //Luu du lieu
-        $nhasanxuat = new Nhasanxuat();
-        $nhasanxuat->nsx_ten = $nsx_ten;
-        $nhasanxuat = $request->nsx_diachi;
-        $nhasanxuat = $request->nsx_dienthoai;
-        $nhasanxuat->xx_taoMoi = Carbon::now();
-        $nhasanxuat->xx_capNhat = Carbon::now();
-        $nhasanxuat -> save();
+        $nsx = new Nhasanxuat();
+        $nsx ->nsx_ten = $nsx_ten;
+        $nsx ->nsx_diachi = $nsx_diachi;
+        $nsx ->nsx_dienthoai = $nsx_dienthoai;
+        $nsx->nsx_taomoi = Carbon::now();
+        $nsx->nsx_capnhat = Carbon::now();
+        $nsx -> save();
 
-       Session::flash('alert - warning', 'Thêm mới thành công !');
+       Session::flash('alert-success', 'Thêm mới thành công !');
        // Dieu huong ve trang chu
-       return redirect(route('admin.nhasanxuat.index'));
+       return redirect(route('admin.nhasx.index'));
     }
 
     /**
@@ -90,7 +93,15 @@ class NhasanxuatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $nsx= Nhasanxuat::find($id);
+        $nsx ->nsx_ten = $request->nsx_ten;
+        $nsx ->nsx_diachi = $request->nsx_diachi;
+        $nsx ->nsx_dienthoai = $request->nsx_dienthoai;
+        $nsx ->nsx_taomoi = $request->nsx_taomoi = Carbon::now();
+        $nsx ->nsx_capnhat = $request->nsx_capnhat = Carbon::now();
+        $nsx -> save();
+        Session::flash('alert-success', 'Chỉnh sửa thành công !');
+        return redirect(route('admin.nhasx.index'));
     }
 
     /**
@@ -101,10 +112,9 @@ class NhasanxuatController extends Controller
      */
     public function destroy($id)
     {
-        $nhasanxuat= Nhasanxuat::find($id);
-        $nhasanxuat->delete();
-
+        $nsx= Nhasanxuat::find($id);
+        $nsx->delete();
         Session::flash('alert-success', 'Xóa thành công !');
-        return redirect(route('admin.nhasanxuat.index'));
+        return redirect(route('admin.nhasx.index'));
     }
 }

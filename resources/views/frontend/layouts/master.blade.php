@@ -36,16 +36,19 @@
           }
       }
       }
+      .row{
+        width:915px;
+      }
     </style>
 </head>
 <body>
     <!-- header -->
-    <nav style="background-color: #e3f2fd;" >
+    <nav style="background-color: #e3f2fd;">
       <div class="row">
-        <div class="col-md-4 text-center" style="padding-left: 150px;">
-          <img src="{{ asset('img/logo1.png') }}" alt="" height="80px" weight="80px">
+        <div class="col-md-4 text-center" style="padding-left: 120px;">
+          <img src="{{ asset('img/logo2.png') }}" alt="" height="80px" weight="80px">
         </div>
-        <div class=" col-md-8 ">
+        <div class=" col-md-8">
           <form class="form-inline">
             <input class="form-control col-md-6 text-center " style="margin: 20px 5px;" type="search" aria-label="Search" >
             <button class="btn btn btn-outline-info my-2 my-sm-0 col-md-2 text-center" type="submit" >Search</button>

@@ -16,6 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('/admin/nhasx', 'Backend\NhasanxuatController' , ['as' => 'admin']);
+Route::resource('/admin/sanpham', 'Backend\SanphamController' , ['as' => 'admin']);
 Route::resource('/admin/thanhtoan', 'Backend\ThanhtoanController' , ['as' => 'admin']);
 
 

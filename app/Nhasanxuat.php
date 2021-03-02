@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Nhasanxuat extends Model
 {
@@ -17,4 +18,9 @@ class Nhasanxuat extends Model
 
     protected $dates        = ['nsx_taomoi', 'nsx_capnhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function sanPhams()
+    {
+        return $this->hasMany('App\Sanpham', 'nsx_ma', 'nsx_ma');
+    }
 }

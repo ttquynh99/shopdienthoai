@@ -22,3 +22,7 @@ Route::resource('/admin/thanhtoan', 'Backend\ThanhtoanController' , ['as' => 'ad
 
 Route::get('/pages/gioithieu','Frontend\FrontendController@gioi_thieu');
 Route::get('/pages/cauhoi','Frontend\FrontendController@cauhoi');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

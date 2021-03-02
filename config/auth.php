@@ -70,7 +70,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        // Thay thế việc Xác thực tài khoản bằng model `Nhanvien`
+        'users' => [
+            'driver' => 'custom',
+            'model' => App\Nhanvien::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

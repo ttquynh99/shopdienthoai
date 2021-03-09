@@ -11,14 +11,14 @@
 @endsection
     
 @section('content')
-    <!-- @if(Session::has('alert-success'))
+    @if(Session::has('alert-success'))
         <div class="alert alert-success" role="alert">
         {{Session::get('alert-success')}}
         </div>
-    @endif -->
+    @endif
     <h1>Danh sách sản phẩm</h1>
             <table class="table table-striped table-bordered">
-                <!-- <a class="btn btn-primary" href="{{route('admin.sanpham.create')}}"> Thêm mới</a> -->
+                <a class="btn btn-primary" href="{{route('admin.sanpham.create')}}"> Thêm mới</a>
                 <tr>
                     <td>Mã</td>
                     <td>Tên</td>
@@ -39,11 +39,9 @@
                         </td>
                         <td>{{ $sp->nhasanxuat->nsx_ten}}</td>
                         <td>
-                            <a href="{{ route('admin.sanpham.edit', ['id' => $sp->sp_ma]) }}" class="btn btn-primary pull-left">Sửa</a>
-                            <form method="post" action="{{ route('admin.sanpham.destroy', ['id' => $sp->sp_ma]) }}" class="pull-left">
-                                
+                            <a href="{{ route('admin.sanpham.edit', ['id' => $sp->id]) }}" class="btn btn-primary pull-left">Sửa</a>
+                            <form method="post" action="{{ route('admin.sanpham.destroy', ['id' => $sp->id]) }}" class="pull-left">  
                                 <input type="hidden" name="_method" value="DELETE" />
-                                
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-danger">Xóa</button>
                             </form>
@@ -52,42 +50,4 @@
                 @endforeach
             </table>
 @endsection
-@section('custom-scripts')
-<!-- <script>
-$(function(){
-    $('.frmDelete').submit(function(e){
-        e.preventDefault();
-        var id=$(this).data('id');
-        swal.fire({
-            title: 'Bạn có chắc muốn xóa?',
-            text: 'Bạn sẽ không thể phục hồi khi xóa!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Có, hãy xóa',
-            cancelButtonText: 'Không',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor:'#d33'
-            }).then((result) => {
-            if(result.isConfirmed) {
-                $.ajax({
-                    type:'post',
-                    url: $(this).attr('action'),
-                    data: {
-                        id: id,
-                        _token:$(this).find('[name=_token]').val(),
-                        _method:$(this).find('[name=_method]').val()
-                    },
-                    success: function(data, textStatus, jqXHR){
-                        location.href = '{{ route('admin.nhasx.index') }}';
-                        debugger;
-                    },
-                    error: function(jqXHR,textStatus,errorThown){
-                    }
-                });
-            }
-        })
-    });
-});
-</script> -->
-    
-@endsection
+

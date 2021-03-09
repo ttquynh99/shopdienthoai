@@ -3,7 +3,7 @@
     margin-bottom: 0;
       border-radius: 0;
       background-image: linear-gradient(to bottom,black, gray ,LightPink);
-      height:720px;
+      min-height: 900px;
       color: white;
 }
 
@@ -35,9 +35,9 @@
                         </a>
                     </li>
                 </ul>
-            
+            </li>    
                 <!-- Danh sach hinh thuc thanh toan -->
-                <li class="nav-item">
+            <li class="nav-item">
                 <a href="#ttSubMenu" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle {{ (strpos(Route::currentRouteName(), 'admin.thanhtoan') === 0) ? 'active' : '' }}">
                     <span data-feather="package"></span> Hình thức thanh toán
                 </a>
@@ -45,12 +45,27 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.thanhtoan.index') === 0) ? 'active' : '' }}" href="{{ route('admin.thanhtoan.index') }}/">
                             <span data-feather="list"></span>
-                            Danh sách hình thức thanh toán
+                                Danh sách hình thức thanh toán
                         </a>
                     </li>
                 </ul>
             </li>
+            <!-- Danh sach san pham -->
+            <li class="nav-item">
+                <a href="#spSubMenu" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle {{ (strpos(Route::currentRouteName(), 'admin.sanpham') === 0) ? 'active' : '' }}">
+                    <span data-feather="package"></span> Sản phẩm
+                </a>
+                <ul class="{{ (strpos(Route::currentRouteName(), 'admin.sanpham') === 0) ? 'collapse show' : 'collapse' }}" id="spSubMenu">
+                    <li class="nav-item">
+                        <a class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.sanpham.index') === 0) ? 'active' : '' }}" href="{{ route('admin.sanpham.index') }}/">
+                            <span data-feather="list"></span>
+                                Danh sách sản phẩm
+                        </a>
+                    </li>
+                </ul>
             </li>
+
+            
         </ul>
     </div>
 </nav>

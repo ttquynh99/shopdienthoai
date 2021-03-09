@@ -102,8 +102,10 @@ class SanphamController extends Controller
     {
         
         $nsx = Nhasanxuat::all();
+        $sp = Sanpham::where("sp_ma", $id)->first();
         return view('backend.sanpham.edit')
-        ->with('nsx', $nsx);
+        ->with('nsx', $nsx)
+        ->with('sp', $sp);
     }
 
     /**
@@ -128,7 +130,22 @@ class SanphamController extends Controller
         $sp->sp_capNhat = $request->sp_capNhat;
         $sp->sp_trangThai = $request->sp_trangThai;
         $sp->nsx_ma = $request->nsx_ma;
-        $sp -> save();
+
+
+        if($request->hasFile('sp_hinh'))
+        {
+            // Xóa hình cũ để tránh rác
+            Storage::delete('public/photos/' . $sp->sp_hinh);
+
+            // Upload hình mới
+            // Lưu tên hình vào column sp_hinh
+            $file = $request->sp_hinh;
+            $sp->sp_hinh = $file->getClientOriginalName();
+            
+            // Chép file vào thư mục "photos"
+            $fileSaved = $file->storeAs('public/photos', $sp->sp_hinh);
+        }
+        $sp->save();
 
        Session::flash('alert-success', 'Chỉnh sửa thành công !');
        // Dieu huong ve trang chu

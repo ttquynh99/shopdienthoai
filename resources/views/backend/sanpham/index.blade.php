@@ -8,6 +8,12 @@
     <link href="{{ asset('vendor/bootstrap-fileinput/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
     <link href="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css"/>
+    <style>
+        .img-hinh{
+            width: 100px;
+            height:100px;
+        }
+    </style>
 @endsection
     
 @section('content')
@@ -24,8 +30,8 @@
                     <td>Tên</td>
                     <td>Giá bán</td>
                     <td>Màu</td>
-                    <td>Hình</td>
                     <td>Nhà sản xuất</td>
+                    <td>Hình</td>
                     <td>Hành động</td>
                 </tr>
                 @foreach($sp as $sp)
@@ -34,10 +40,10 @@
                         <td>{{ $sp->sp_ten}}</td>
                         <td>{{ $sp->sp_giaBan}}</td>
                         <td>{{ $sp->sp_mau}}</td>
-                        <td>
-                            <img src="{{asset('storage/' . $sp->sp_hinh)}}" alt="" class="img-hinh">
-                        </td>
                         <td>{{ $sp->nhasanxuat->nsx_ten}}</td>
+                        <td>
+                            <img src="{{asset('storage/photos/' . $sp->sp_hinh)}}" alt="" class="img-hinh">
+                        </td>
                         <td>
                             <a href="{{ route('admin.sanpham.edit', ['id' => $sp->id]) }}" class="btn btn-primary pull-left">Sửa</a>
                             <form method="post" action="{{ route('admin.sanpham.destroy', ['id' => $sp->id]) }}" class="pull-left">  

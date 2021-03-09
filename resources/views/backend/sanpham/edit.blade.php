@@ -24,12 +24,6 @@
         <input type="text" class="form-control" id="sp_giaBan" name="sp_giaBan" value="{{ old('sp_giaBan',$sp->sp_giaBan) }}" />
     </div>
     <div class="form-group">
-        <div>
-        <label>Hình ảnh liên quan sản phẩm</label>
-        <input id="sp_hinh" type="file" name="sp_hinh" value="{{ old('sp_hinh',$sp->sp_hinh )}}">
-        </div>
-    </div>
-    <div class="form-group">
         <label for="exampleFormControlInput1" class="form-label">Mau</label>
         <input type="text" class="form-control" id="sp_mau" name="sp_mau" value="{{ old('sp_mau',$sp->sp_mau) }}" />
     </div>
@@ -64,6 +58,12 @@
             @endif
             @endforeach
         </select>
+    </div>
+    <div class="form-group">
+        <div>
+        <label>Hình ảnh sản phẩm</label>
+        <input id="sp_hinh" type="file" name="sp_hinh" value="{{ old('sp_hinh',$sp->sp_hinh )}}">
+        </div>
     </div>
   <button class="btn btn-primary"> Lưu</button>
 </form>

@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::resource('/admin/nhasx', 'Backend\NhasanxuatController' , ['as' => 'admin']);
 Route::resource('/admin/sanpham', 'Backend\SanphamController' , ['as' => 'admin']);
 Route::resource('/admin/thanhtoan', 'Backend\ThanhtoanController' , ['as' => 'admin']);
-
+Route::resource('/admin/khachhang', 'Backend\KhachhangController' , ['as' => 'admin']);
 
 Route::get('/pages/gioithieu','Frontend\FrontendController@gioi_thieu');
 Route::get('/pages/cauhoi','Frontend\FrontendController@cauhoi');

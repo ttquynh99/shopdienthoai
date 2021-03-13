@@ -65,6 +65,21 @@
                 </ul>
             </li>
 
+            <!-- Danh sach khach hang -->
+            <li class="nav-item">
+                <a href="#khSubMenu" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle {{ (strpos(Route::currentRouteName(), 'admin.khachhang') === 0) ? 'active' : '' }}">
+                    <span data-feather="package"></span> Khách hàng
+                </a>
+                <ul class="{{ (strpos(Route::currentRouteName(), 'admin.khachhang') === 0) ? 'collapse show' : 'collapse' }}" id="khSubMenu">
+                    <li class="nav-item">
+                        <a class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.khachhang.index') === 0) ? 'active' : '' }}" href="{{ route('admin.khachhang.index') }}/">
+                            <span data-feather="list"></span>
+                                Danh sách khách hàng
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             
         </ul>
     </div>

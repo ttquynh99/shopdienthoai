@@ -56,6 +56,13 @@ class SanphamController extends Controller
         $sp->sp_ten = $request->sp_ten;
         $sp->sp_giagoc = $request->sp_giagoc;
         $sp->sp_giaBan = $request->sp_giaBan;
+        $sp->sp_mau = $request->sp_mau;
+        $sp->sp_thongTin = $request->sp_thongTin;
+        $sp->sp_danhGia = $request->sp_danhGia;
+        $sp->sp_taoMoi = $request->sp_taoMoi;
+        $sp->sp_capNhat = $request->sp_capNhat;
+        $sp->sp_trangThai = $request->sp_trangThai;
+        $sp->nsx_ma = $request->nsx_ma;
         if($request->hasFile('sp_hinh'))
         {
             $file = $request->sp_hinh;
@@ -64,17 +71,9 @@ class SanphamController extends Controller
             $sp->sp_hinh = $file->getClientOriginalName();
             
             // Chép file vào thư mục "photos"
-            $fileSaved = $file->storeAs('public/photos/', $sp->sp_hinh);
+            $fileSaved = $file->storeAs('public/photos', $sp->sp_hinh);
         }
-        
-        $sp->sp_mau = $request->sp_mau;
-        $sp->sp_thongTin = $request->sp_thongTin;
-        $sp->sp_danhGia = $request->sp_danhGia;
-        $sp->sp_taoMoi = $request->sp_taoMoi;
-        $sp->sp_capNhat = $request->sp_capNhat;
-        $sp->sp_trangThai = $request->sp_trangThai;
-        $sp->nsx_ma = $request->nsx_ma;
-        $sp -> save();
+        $sp->save();
 
        Session::flash('alert-success', 'Thêm mới thành công !');
        // Dieu huong ve trang chu
@@ -102,7 +101,7 @@ class SanphamController extends Controller
     {
         
         $nsx = Nhasanxuat::all();
-        $sp = Sanpham::where("sp_ma", $id)->first();
+        $sp = Sanpham::where("id", $id)->first();
         return view('backend.sanpham.edit')
         ->with('nsx', $nsx)
         ->with('sp', $sp);
@@ -117,7 +116,7 @@ class SanphamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sp= Sanpham::find($id);
+        $sp= Sanpham::where("id",  $id)->first();
         $sp->sp_ma = $request->sp_ma;
         $sp->sp_ten = $request->sp_ten;
         $sp->sp_giagoc = $request->sp_giagoc;
